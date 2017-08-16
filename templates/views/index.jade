@@ -1,0 +1,165 @@
+extends ../layouts/default
+
+include ../mixins/sidebar.jade
+
+block content
+
+	// .splash
+	//.container
+	//	.row
+	//		.col-lg-12
+				//h1 Institute of Sonology
+				// p research center for electronic and computer music
+				// img(src='images/design/sonostud.jpg', alt='')
+				
+	.container-fluid
+		.row-fluid
+				.span12
+					//.page-header
+						//h3 Bootstrap
+						//p Responsive Carousel Demo
+					#myCarousel.carousel.carousel-fade.slide
+						.carousel-inner
+							
+							if data.variant
+
+								.item.active
+									.bannerImage
+										a(href=data.variant.upperField1Link)
+											img(src=data.variant.upperField1Image, alt='')
+									.caption.row-fluid
+										.span4
+											h3= data.variant.upperField1Header
+											a.btn.btn-mini(href=data.variant.upperField1Link) &raquo; Read More
+										.span8
+											p
+											!= data.variant.upperField1Text
+
+							if data.variant.upperField2Text.length 
+
+								.item
+									.bannerImage
+										a(href=data.variant.upperField2Link)
+											img(src=data.variant.upperField2Image, alt='')
+									.caption.row-fluid
+										.span4
+											h3= data.variant.upperField2Header
+											a.btn.btn-mini(href=data.variant.upperField2Link) &raquo; Read More
+										.span8
+											p
+											!= data.variant.upperField2Text
+
+							if data.variant.upperField3Text.length 
+
+								.item
+									.bannerImage
+										a(href=data.variant.upperField3Link)
+											img(src=data.variant.upperField3Image, alt='')
+									.caption.row-fluid
+										.span4
+											h3= data.variant.upperField3Header
+											a.btn.btn-mini(href=data.variant.upperField3Link) &raquo; Read More
+										.span8
+											p
+											!= data.variant.upperField3Text	
+
+							if data.variant.upperField4Text.length 
+
+								.item
+									.bannerImage
+										a(href=data.variant.upperField4Link)
+											img(src=data.variant.upperField4Image, alt='')
+									.caption.row-fluid
+										.span4
+											h3= data.variant.upperField4Header
+											a.btn.btn-mini(href=data.variant.upperField4Link) &raquo; Read More
+										.span8
+											p
+											!= data.variant.upperField4Text
+
+							if data.variant.upperField5Text.length 
+
+								.item
+									.bannerImage
+										a(href=data.variant.upperField5Link)
+											img(src=data.variant.upperField5Image, alt='')
+									.caption.row-fluid
+										.span4
+											h3= data.variant.upperField5Header
+											a.btn.btn-mini(href=data.variant.upperField5Link) &raquo; Read More
+										.span8
+											p
+											!= data.variant.upperField5Text	
+
+							if data.variant.upperField6Text.length 
+
+								.item
+									.bannerImage
+										a(href=data.variant.upperField6Link)
+											img(src=data.variant.upperField6Image, alt='')
+									.caption.row-fluid
+										.span4
+											h3= data.variant.upperField6Header
+											a.btn.btn-mini(href=data.variant.upperField6Link) &raquo; Read More
+										.span8
+											p
+											!= data.variant.upperField6Text		
+							
+							
+						.control-box
+							a.carousel-control.left(data-slide='prev', href='#myCarousel') &lsaquo;
+							a.carousel-control.right(data-slide='next', href='#myCarousel') &rsaquo;
+
+	.section-tout
+		.container
+			.row
+				.col-lg-4.col-sm-6
+					h3
+						i.fa.fa-file-o
+							!= data.variant.lowerField1Header
+					p
+						img.img-responsive(onload="this.style.opacity='1.0';", src=data.variant.lowerField1Image, alt='')
+					p
+						!= data.variant.lowerField1Text
+				.col-lg-4.col-sm-6
+					h3
+						i.fa.fa-file-o
+							!= data.variant.lowerField2Header
+					p
+						img.img-responsive(onload="this.style.opacity='1.0';", src=data.variant.lowerField2Image, alt='')
+					p
+						!= data.variant.lowerField2Text
+				.col-lg-4.col-sm-6
+					h3
+						i.fa.fa-file-o
+							!= data.variant.lowerField3Header
+					p
+						img.img-responsive(onload="this.style.opacity='1.0';", src=data.variant.lowerField3Image, alt='')
+					p
+						!= data.variant.lowerField3Text
+				.col-lg-4.col-sm-6
+					h3
+						i.fa.fa-file-o
+							!= data.variant.lowerField4Header
+					p
+						img.img-responsive(onload="this.style.opacity='1.0';", src=data.variant.lowerField4Image, alt='')
+					p
+						!= data.variant.lowerField4Text
+				.col-lg-4.col-sm-6
+					h3
+						i.fa.fa-file-o
+							!= data.variant.lowerField5Header
+					p
+						img.img-responsive(onload="this.style.opacity='1.0';", src=data.variant.lowerField5Image, alt='')
+					p
+						!= data.variant.lowerField5Text
+				.col-lg-4.col-sm-6
+					h3
+						i.fa.fa-file-o
+							!= data.variant.lowerField6Header
+					p
+						img.img-responsive(onload="this.style.opacity='1.0';", src=data.variant.lowerField6Image, alt='')
+					p
+						!= data.variant.lowerField6Text
+						
+				

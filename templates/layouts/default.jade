@@ -1,0 +1,129 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+
+	//- HTML HEADER
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+		title= 'Sonology'
+		.logo
+			link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+		//- Customise the stylesheet for your site by editing /public/styles/site.less
+		//- All .less files will be automatically compiled and minified in production.
+
+		link(href="/styles/bootstrap.min.css", rel="stylesheet")
+		link(href="/styles/bootswatch.min.css", rel="stylesheet")
+		
+		link(href="/styles/custom.css", rel="stylesheet")
+
+		//- This file provides the default styling for the KeystoneJS Content Editor
+		if user && user.canAccessKeystone
+			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+
+		//- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		//- Safely remove this block if you are not targeting IE8
+		//-[if lt IE 9]
+			script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
+			script(src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js")
+		//-[endif]
+
+		script(src="/js/lib/jquery/jquery-2.1.0.min.js")
+		script(src="/js/lib/bootswatch/bootswatch.js")
+		script(src="/js/lib/bootstrap/bootstrap-3.1.0.min.js")
+
+		script.
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+				ga('create', 'UA-60045368-1', 'auto');
+				ga('send', 'pageview');
+
+		script(src="/js/sonology.js")
+
+		//- Include template-specific stylesheets by extending the css block
+		block css
+
+		//- Add any other template-specific HEAD tags by extending the head block 
+		block head
+
+	//- HTML BODY
+	body
+		div(role="navigation").navbar.navbar-default.navbar-fixed-top
+			.container
+				.navbar-header 
+					a(href='/')
+						img(src='/images/logo.gif', width='168', height='60')
+				.collapse.navbar-collapse
+					ul.nav.navbar-nav.navbar-left
+						each link in navLinks
+							li(class=(link.active ? 'active' : null)): a(href=link.href)= link.label
+					
+						// li.desktop: a(href="http://www.koncon.nl", target='_blank') KC
+						li: a(href="http://www.koncon.nl", target='_blank') KC
+
+					ul.nav.navbar-nav.navbar-right
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+						span.icon-bar
+
+						if user
+							if user.canAccessKeystone
+								li: a(href='/keystone') Admin
+							li: a(href='/keystone/signout') Logout
+
+		block content
+
+		footer
+			.container
+				.row
+					.col-xs-12.col-sm-12
+						hr
+						ul.list-unstyled
+							li.pull-right
+								a(href='#top') Back to top
+							li
+								a(href='/pages/contact', target='_blank') Contact
+							li
+								a(href='https://soundcloud.com/sonology', target='_blank') Soundcloud
+							li
+								a(href='https://www.facebook.com/pages/Institute-of-Sonology-The-Hague/254909121336662?ref=hl', target='_blank') Facebook
+							li  
+								a(href='https://twitter.com/sonology_org', target='_blank') Twitter
+						
+						// p Institute of Sonology 
+						
+						// p Royal Conservatory 
+						
+						// p Juliana van Stolberglaan 1 
+						
+						// p 2595 CA The Hague
+						
+						// p info@sonology.org 
+
+		//- JAVASCRIPT
+
+		//- jQuery 1.11.0 is included by default, and required by both Bootstrap
+		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
+		//- you can upgrade to 2.1.0 (also bundled) for better performance.
+		script(src='/js/lib/jquery/jquery-1.11.0.min.js')
+
+		//- Customise which Bootstrap javascript files are served by including
+		//- them specifically here, instead of bootstrap-3.1.0.min.js
+		script(src='/js/lib/bootstrap/bootstrap-3.1.0.min.js')
+
+		// script(src='/js/lib/bootswatch/bootswatch.js')
+
+		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
+		//- which generate links to edit content for users who can access Keystone
+		if user && user.canAccessKeystone
+			script(src='/keystone/js/content/editor.js')
+
+		//- Add scripts that are globally required by your site here.
+
+		//- Include template-specific javascript files by extending the js block
+		block js

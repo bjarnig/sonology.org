@@ -1,0 +1,26 @@
+extends ../layouts/default
+
+include ../mixins/sidebar.jade
+
+block content
+
+	.container
+
+		.row
+
+			.col-xs-12.col-sm-12(data-spy='scroll', data-target='#sidebar-nav')
+				article.Page(data-ks-editable=editable(user, { list: 'Page', id: data.page.id }))
+
+					.content
+
+						h2= data.pageCategory
+						hr
+
+						mixin sidebar
+
+						.col-md-10
+					
+							.post
+								if data.page.image.exists
+									.image-wrap: img(src=data.page._.image.fit(750,450)).img-responsive
+								!= data.page.content.english
